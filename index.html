@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist - Equipe de Interação</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #3b82f6;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --border: #e2e8f0;
+            --success: #10b981;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        header h1 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            background: #e2e8f0;
+            color: var(--text);
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .section-content {
+            display: none;
+        }
+
+        .section-content.active {
+            display: block;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--secondary);
+            font-size: 1.1rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 8px;
+        }
+
+        .alert-box {
+            background: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            margin-bottom: 16px;
+            color: #b45309;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        .sub-list {
+            margin-left: 20px;
+            margin-top: 8px;
+            border-left: 2px solid var(--border);
+            padding-left: 10px;
+        }
+
+        label {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            user-select: none;
+        }
+
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            accent-color: var(--success);
+            cursor: pointer;
+        }
+
+        input[type="checkbox"]:checked + span {
+            text-decoration: line-through;
+            color: #94a3b8;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .btn-reset {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-reset:hover {
+            background: #dc2626;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Rádio Encorajamento</h1>
+            <p>Checklist Oficial da Equipe de Interação</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('montagem')">Montagem</button>
+            <button class="tab-btn" onclick="switchTab('desmontagem')">Desmontagem</button>
+        </div>
+
+        <!-- MONTAGEM -->
+        <div id="montagem" class="section-content active">
+            <div class="card">
+                <h3>Áudio</h3>
+                <ul>
+                    <li>
+                        <label><input type="checkbox" class="check-item"><span>Microfones, receptor e pilhas (branco e vermelho pegar no Connect)</span></label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" class="check-item"><span>Testar os microfones</span></label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Cenário</h3>
+                <ul>
+                    <li>
+                        <label><input type="checkbox" class="check-item"><span>Montar fundo preto</span></label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" class="check-item"><span>Iluminação de fundo (apontadas para o pano)</span></label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" class="check-item"><span>Iluminação de frente (softbox)</span></label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" class="check-item"><span>Organizar as extensões para ligar todos os equipamentos</span></label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Área Externa</h3>
+                <ul>
+                    <li>
+                        <label><input type="checkbox" class="check-item"><span>Colocar as correntes</span></label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" class="check-item"><span>Colocar a placa</span></label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" class="check-item"><span>Apagar luz do corredor</span></label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Filmagem</h3>
+                <ul>
+                    <li>
+                        <label><input type="checkbox" class="check-item"><span>Tripé</span></label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" class="check-item"><span>Conectar o cabo SDI no conversor</span></label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" class="check-item"><span>Câmera 3</span></label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" class="check-item"><span>Bateria da câmera</span></label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" class="check-item"><span>Cabo azul (HDMI para mini HDMI)</span></label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" class="check-item"><span>Intercom 3 e 5 (câmera 3 e iluminação)</span></label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- DESMONTAGEM -->
+        <div id="desmontagem" class="section-content">
+            <div class="alert-box">
+                <strong>Importante:</strong> Deixar o ambiente limpo e organizado, colocar tudo que foi tirado do lugar de volta no lugar. Atenção aos equipamentos que ficam guardados no hall entre a rádio e o streaming, não deixar mais equipamentos do que o espaço comporta.
+            </div>
+
+            <div class="card">
+                <h3>Área Externa</h3>
+                <ul>
+                    <li>
+                        <label><input type="checkbox" class="check-item"><span>Retirar correntes e placa do corredor</span></label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Rádio</h3>
+                <ul>
+                    <li>
+                        <label><input type="checkbox" class="check-item"><span>Desmontar o fundo (guardar a estrutura na caixa e o pano na gaveta da rádio)</span></label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" class="check-item"><span>Softbox (descer um para o almoxarifado da mídias e dois ficam no hall entre a rádio e o streaming)</span></label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" class="check-item"><span>Extensões e parleds ficam na última prateleira do rack que fica no hall entre a rádio e o streaming</span></label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" class="check-item"><span>Colocar os móveis no lugar correto</span></label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" class="check-item"><span>Tirar sapata e deixar no tripé</span></label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" class="check-item"><span>Colocar baterias para carregar (câmera e intercoms)</span></label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" class="check-item"><span>Guardar câmera, cabo azul</span></label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" class="check-item"><span>Guardar intercoms</span></label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" class="check-item"><span>Guardar microfones e base no Connect</span></label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button class="btn-reset" onclick="resetChecklist()">Limpar Checklist</button>
+        </div>
+    </div>
+
+    <script>
+        // Alternar Abas
+        function switchTab(tabName) {
+            document.querySelectorAll('.section-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        // Salvar estado no LocalStorage do navegador
+        const checkboxes = document.querySelectorAll('.check-item');
+
+        checkboxes.forEach((checkbox, index) => {
+            // Carregar estado salvo
+            const savedState = localStorage.getItem('checkbox_' + index);
+            if (savedState === 'true') {
+                checkbox.checked = true;
+            }
+
+            // Salvar ao alterar
+            checkbox.addEventListener('change', () => {
+                localStorage.setItem('checkbox_' + index, checkbox.checked);
+            });
+        });
+
+        // Limpar tudo
+        function resetChecklist() {
+            if (confirm("Deseja realmente limpar todas as marcações?")) {
+                checkboxes.forEach((checkbox, index) => {
+                    checkbox.checked = false;
+                    localStorage.removeItem('checkbox_' + index);
+                });
+            }
+        }
+    </script>
+</body>
+</html>
